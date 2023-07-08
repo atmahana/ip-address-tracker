@@ -1,30 +1,16 @@
 import { useState } from "react";
+import useHttp from "../../hook/use-http";
+import Map from "../Map/Map";
 
 const apiKey = import.meta.env.VITE_IPIFY_API_KEY;
 
 function SearchInput() {
   const [ipAddress, setIpAddress] = useState("");
-  const [resData, setResData] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const {data: resData, isLoading, error, clickHandler} = useHttp(ipAddress);
+
 
   const changeHandler = (event) => {
     setIpAddress(event.target.value);
-  };
-
-  const clickHandler = async (event) => {
-    event.preventDefault();
-    setIsLoading(true);
-    try {
-      const res = await fetch(
-        `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=${ipAddress}`
-      );
-      const data = await res.json();
-      console.log(data);
-      setResData(data);
-    } catch (err) {
-      console.log(err);
-    }
-    setIsLoading(false);
   };
 
   return (
@@ -46,6 +32,7 @@ function SearchInput() {
         <p>Timezone: {resData?.location.timezone}</p>
         <p>ISP: {resData?.isp}</p>
       </div>
+      <Map lat={resData?.location.lat} long={resData?.location.lng}/>
     </>
   );
 }

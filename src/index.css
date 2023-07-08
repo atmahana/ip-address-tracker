@@ -67,3 +67,8 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.leaflet-container{
+  height: 70vh;
+  border: 2px solid red;
+}
