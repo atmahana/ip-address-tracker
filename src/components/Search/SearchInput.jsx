@@ -6,8 +6,7 @@ const apiKey = import.meta.env.VITE_IPIFY_API_KEY;
 
 function SearchInput() {
   const [ipAddress, setIpAddress] = useState("");
-  const {data: resData, isLoading, error, clickHandler} = useHttp(ipAddress);
-
+  const { data: resData, isLoading, latlng, clickHandler } = useHttp(ipAddress);
 
   const changeHandler = (event) => {
     setIpAddress(event.target.value);
@@ -31,8 +30,10 @@ function SearchInput() {
         </p>
         <p>Timezone: {resData?.location.timezone}</p>
         <p>ISP: {resData?.isp}</p>
+        <p>Latitude: {latlng}</p>
+        <p>Longitude: {latlng}</p>
       </div>
-      <Map lat={resData?.location.lat} long={resData?.location.lng}/>
+      <Map latlng={latlng}/>
     </>
   );
 }

@@ -1,17 +1,11 @@
 import "leaflet/dist/leaflet.css";
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
-import { Icon } from "leaflet";
-import IconLocation from "../../assets/icon-location.svg";
+import { MapContainer, TileLayer } from "react-leaflet";
+import LocationMarker from "./Marker";
 
 const token = import.meta.env.VITE_MAP_TOKEN;
 
 function Map(props) {
   const location = [props.lat || 37.38605, props.long || -122.08385];
-
-  const customIcon = new Icon({
-    iconUrl: IconLocation,
-    iconSize: [38, 48],
-  });
 
   return (
     <MapContainer center={location} zoom={15} scrollWheelZoom={true}>
@@ -22,7 +16,8 @@ function Map(props) {
         minZoom="8"
         maxZoom="20"
       />
-      <Marker position={location} icon={customIcon} />
+      {/* <Marker position={location} icon={customIcon} /> */}
+      <LocationMarker latlng={props.latlng}/>
     </MapContainer>
   );
 }
