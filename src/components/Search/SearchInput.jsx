@@ -1,6 +1,9 @@
 import { useState } from "react";
 import useHttp from "../../hook/use-http";
-import Map from "../Map/Map";
+import Result from "../Result/Result";
+import classes from "./SearchInput.module.css";
+import ArrowIcon from "../../assets/icon-arrow.svg";
+import LoadingIcon from '../../assets/loading.svg';
 
 const apiKey = import.meta.env.VITE_IPIFY_API_KEY;
 
@@ -14,26 +17,26 @@ function SearchInput() {
 
   return (
     <>
-      <input
-        onChange={changeHandler}
-        value={ipAddress}
-        placeholder="Search for any IP address or domain"
-      ></input>
-      <button onClick={clickHandler}>
-        {isLoading ? "Finding..." : "Search"}
-      </button>
-      <div>
-        <h2>IP Details:</h2>
-        <p>IP: {resData?.ip}</p>
-        <p>
-          Location: {resData?.location.city} {resData?.location.postalCode}
-        </p>
-        <p>Timezone: {resData?.location.timezone}</p>
-        <p>ISP: {resData?.isp}</p>
-        <p>Latitude: {latlng}</p>
-        <p>Longitude: {latlng}</p>
+      <div className={classes.wrapper}>
+        <input
+          onChange={changeHandler}
+          value={ipAddress}
+          placeholder="Search for any IP address or domain"
+          className={classes.search}
+        ></input>
+
+        <button className={classes.btn} onClick={clickHandler}>
+          {isLoading ? <img src={LoadingIcon}/> : <img src={ArrowIcon} />}
+        </button>
       </div>
-      <Map latlng={latlng}/>
+      <Result
+        ip={resData?.ip}
+        city={resData?.location.city}
+        region={resData?.location.region}
+        postalCode={resData?.location.postalCode}
+        timezone={resData?.location.timezone}
+        isp={resData?.isp}
+      />
     </>
   );
 }

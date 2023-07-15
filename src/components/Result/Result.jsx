@@ -1,22 +1,32 @@
-function Result() {
+import classes from "./Result.module.css";
+
+function Result(props) {
+  const city = props.city ? props.city + ', ' : '';
+  const region = props.region ? props.region + ' ' : '';
+  const postalCode = props.postalCode ? props.postalCode : '';
+
+  const location = city + region + postalCode;
+
   return (
     <>
-      <div className="wrapper grid">
-        <div className="grid-item">
-          <span className="result-title">IP ADDRESS</span>
-          <h2 className="result-content">192.212.174.101</h2>
+      <div className={classes.wrapper}>
+        <div className={classes.item}>
+          <h2 className={classes.title}>IP ADDRESS</h2>
+          <span className={classes.content}>{props.ip ? props.ip : "-"}</span>
         </div>
-        <div className="grid-item">
-          <span className="result-title">LOCATION</span>
-          <h2 className="result-content">NY 10001</h2>
+        <div className={classes.item}>
+          <h2 className={classes.title}>LOCATION</h2>
+          <span className={classes.content}>{location ? location : '-'}</span>
         </div>
-        <div className="grid-item">
-          <span className="result-title">TIMEZONE</span>
-          <h2 className="result-content">UTC -05:00</h2>
+        <div className={classes.item}>
+          <h2 className={classes.title}>TIMEZONE</h2>
+          <span className={classes.content}>
+            {props.timezone ? "UTC " + props.timezone : "-"}
+          </span>
         </div>
-        <div className="grid-item">
-          <span className="result-title">ISP</span>
-          <h2 className="result-content">SpaceX Starlink</h2>
+        <div className={classes.item}>
+          <h2 className={classes.title}>ISP</h2>
+          <span className={classes.content}>{props.isp ? props.isp : "-"}</span>
         </div>
       </div>
     </>
