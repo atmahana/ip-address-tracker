@@ -1,6 +1,5 @@
-import { Marker, useMapEvents, Popup, useMap } from "react-leaflet";
+import { Marker, Popup, useMap } from "react-leaflet";
 import { Icon } from "leaflet";
-import { useEffect, useState } from "react";
 import IconLocation from "../../assets/icon-location.svg";
 
 const customIcon = new Icon({

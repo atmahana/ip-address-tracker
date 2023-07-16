@@ -1,0 +1,41 @@
+.wrapper {
+    position: relative;
+}
+
+.title {
+    position: absolute;
+    color: white;
+    text-align: center;
+    width: 100%;
+    font-weight: var(--fw-500);
+    font-size: var(--fs-26px);
+}
+
+.background {
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+}
+
+.foreground {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .title{
+        font-size: 32px;
+    }
+    .foreground {
+        top: 25%
+    }
+}

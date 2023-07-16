@@ -4,7 +4,7 @@ import LocationMarker from "./Marker";
 
 const token = import.meta.env.VITE_MAP_TOKEN;
 
-function Map(props) {
+function Map({ latlng }) {
   const location = [37.38605, -122.08385];
 
   return (
@@ -16,9 +16,7 @@ function Map(props) {
         minZoom="8"
         maxZoom="20"
       />
-      {/* <Marker position={location} icon={customIcon} /> */}
-      {/* <LocationMarker latlng={props.latlng} /> */}
-      <LocationMarker latlng={[37.38605, -122.08385]} />
+      <LocationMarker latlng={latlng ? latlng : location} />
     </MapContainer>
   );
 }
