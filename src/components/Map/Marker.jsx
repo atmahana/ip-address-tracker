@@ -4,7 +4,7 @@ import IconLocation from "../../assets/icon-location.svg";
 
 const customIcon = new Icon({
   iconUrl: IconLocation,
-  iconSize: [30, 38],
+  iconSize: [40, 50],
 });
 
 function LocationMarker({latlng}) {

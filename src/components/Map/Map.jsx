@@ -8,7 +8,7 @@ function Map({ latlng }) {
   const location = [37.38605, -122.08385];
 
   return (
-    <MapContainer center={location} zoom={15} scrollWheelZoom={true}>
+    <MapContainer center={location} zoom={15} scrollWheelZoom={true} zoomControl={false}>
       <TileLayer
         attribution='<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url={`https://{s}.tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=${token}`}
