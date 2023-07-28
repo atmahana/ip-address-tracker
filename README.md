@@ -36,7 +36,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [GitHub repository](https://github.com/atmahana/ip-address-tracker)
-- Live Site URL: [Deployed site](https://ip-address-tracker-eight-gamma.vercel.app/)
+- Live Site URL: [Deployed site](https://ip-address-tracker-fem.vercel.app/)
 
 ## My process
 
@@ -126,4 +126,4 @@ One of the most valuable things I learnt throughout building this project as a b
 ## Author
 
 - GitHub - [Zubair Adham (@atmahana)](https://github.com/atmahana)
-- Frontend Mentor - [Zubair Adham (@atmahana)](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [Zubair Adham (@atmahana)](https://www.frontendmentor.io/profile/atmahana)
